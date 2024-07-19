@@ -1,7 +1,6 @@
 const { where } = require('sequelize');
 const {City}=require('../models/index'); 
 const e = require('express');
-const city = require('../models/city');
 
 console.log("City",City);
 class CityRepository{
@@ -16,7 +15,7 @@ class CityRepository{
         }
     }
 
-    async deleteCity({cityId}){
+    async deleteCity(cityId){
         try{
             await City.destroy({
                 where:{
@@ -28,6 +27,32 @@ class CityRepository{
             throw {error}
         }
     }
+
+    async updateCity(cityId,data){
+        try{
+            const city=await City.update(data,{
+                where:{
+                    id:cityId
+                }
+            })
+            return city;
+        }
+        catch(error){
+            console.log("error occurd while deleting city");
+            throw {error};
+        }
+    }
+
+    async getCity(cityId){
+        try{
+            const city=await City.findByPk(cityId);
+            return city;
+        }catch(error){
+            console.log("Something went wrong in the repository layer")
+            throw(error);
+        }
+    }
+
 
 }
 
