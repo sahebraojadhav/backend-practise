@@ -12,7 +12,7 @@ class CityService{
             return city;
 
         }catch(error){
-            console.log("somethig went wrong at service layer");
+            console.log("somethig went wrong at service layer line 15");
             throw(error)
         }
     }
@@ -46,4 +46,4 @@ class CityService{
     }
 }
 
-module.exports=cityService;
+module.exports=CityService;
