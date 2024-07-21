@@ -2,8 +2,14 @@ const {CityService}=require("../services/index");
 
 const cityService=new CityService();
 
+console.log("controllers city-contorllers");
+
 const create=async(req,res)=>{
+    console.log("pring errorrrrrrrrrrrrrrrrrrrrrrrrr");
+console.log(req.params.id);
     try{
+        console.log("here we are logiing llllllllllllllll",req.body.name);
+        console.log(req.body);
         const city=await cityService.createCity(req.body);
         return res.status(201).json({
             data:city,
@@ -55,7 +61,7 @@ const get=async(req,res)=>{
         })
 
     }catch(error){
-        console.log(error);
+        console.log("we are throwing error form repostory layer");
         console.log(error);
         return res.status(500).json({
             data:{},

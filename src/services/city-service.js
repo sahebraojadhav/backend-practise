@@ -1,6 +1,7 @@
 const { cityService } = require('.');
 const { CityRepository } =require('../repository/index'); 
 
+console.log('city servicess form services');
 class CityService{
     constructor(){
         this.CityRepository=new CityRepository();

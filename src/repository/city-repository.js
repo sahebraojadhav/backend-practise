@@ -2,7 +2,6 @@ const { where } = require('sequelize');
 const {City}=require('../models/index'); 
 const e = require('express');
 
-console.log("City",City);
 class CityRepository{
     async createCity({name}){
         try{
