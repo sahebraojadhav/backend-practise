@@ -15,15 +15,15 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey:'cityId',
         onDelete:'CASCADE'
       })
-    } 
+    }
   }
   Airport.init({
-    name: {
+    name:{
       type:DataTypes.STRING,
       allowNull:false
     },
     address: DataTypes.STRING,
-    ciryId: {
+    cityId: {
       type:DataTypes.INTEGER,
       allowNull:false
     }

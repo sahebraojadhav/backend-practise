@@ -16,7 +16,7 @@ module.exports = {
       address: {
         type: Sequelize.STRING
       },
-      ciryId: {
+      cityId: {
         type: Sequelize.INTEGER,
         onDelete:'CASCADE',
         references:{
