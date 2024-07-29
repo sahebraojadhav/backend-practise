@@ -70,6 +70,22 @@ class CityRepository {
       throw error;
     }
   }
+
+  async createBulkCities(cities){
+      if(!Array.isArray(cities)){
+        return resizeBy.status(400).json({error:'Request body should be an array of cities'})
+      }
+
+      try{
+        const cityData=cities.map((city)=>({name:city.name}));
+        const createCities=await City.bulkCreate(cityData);
+        res.status(201).json({"message":"created succesfully"});
+
+      }catch(error){
+        console.log(error);
+        res.status(500).json({ error: 'An error occurred while creating cities' });
+      }
+  }
 }
 
 module.exports = CityRepository;

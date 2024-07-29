@@ -117,10 +117,33 @@ const getAll=async(req,res)=>{
     }
 }
 
+const bulkCreate=async(req,res)=>{
+    try{
+        console.log(req.body);
+        const cities=await cityService.bulkCreateCities(req.body);
+        return res.status(200).json({
+            data:cities,
+            success:true,
+            message:"cities inserted successfully",
+            err:{}
+        })
+    }
+    catch(error){
+        console.log(error);
+        return res.status(500).json({
+            data:{},
+            success:false,
+            message:'not bale to update a city',
+            err:error
+        })
+    }
+}
+
 module.exports={
     create,
     destroy,
     get,
     update,
-    getAll
+    getAll,
+    bulkCreate
 }

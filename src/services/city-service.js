@@ -56,6 +56,18 @@ class CityService{
             throw(error)
         }
     }
+
+    async bulkCreateCities(data){
+        try{
+            console.log("loggging cities at service layer");
+            console.log(data);
+            const cities=await this.CityRepository.createBulkCities(data);
+            return cities
+        }catch(error){
+            console.log("something is happend at service layer");
+            throw(error);
+        }
+    }
 }
 
 module.exports=CityService;
