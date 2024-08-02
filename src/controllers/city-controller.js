@@ -139,6 +139,8 @@ const bulkCreate=async(req,res)=>{
     }
 }
 
+
+
 module.exports={
     create,
     destroy,
