@@ -6,10 +6,11 @@ const CityRepository =require('./src/repository/city-repository');
 
 const ApiRoutes=require('./src/routes/index')
 
-const {Airport,City}=require('./src/models/index');
+const {Airport,City,Airplane}=require('./src/models/index');
 const { where } = require("sequelize");
+const airport = require("./src/models/airport");
 
-
+console.log("here we arelogging airplaen",Airplane);
 console.log(PORT);
 
 const setupAndStartServer=async ()=>{
@@ -24,12 +25,17 @@ const setupAndStartServer=async ()=>{
     app.listen(PORT,async()=>{
         console.log(`server is running at port ${PORT}`)
         console.log("hello js")
-       const result=await City.findOne({
-        where:{
-            id:12
-        }
-       });
-       console.log(result);
+       
+       // const result=await Airplane.findByPk(2);
+        //console.log(result);
     })
+
+
+   /* City.sequelize.sync().then(()=>{
+        console.log('database synchrozed successfully');
+    })
+
+    */
+    
 }
 setupAndStartServer();

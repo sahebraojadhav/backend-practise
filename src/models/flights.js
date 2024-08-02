@@ -47,7 +47,6 @@ module.exports = (sequelize, DataTypes) => {
 
     totalSeates: {
       type:DataTypes.INTEGER,
-      allowNull:false
     }
   }, {
     sequelize,
